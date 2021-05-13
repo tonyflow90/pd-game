@@ -9,6 +9,7 @@ public class FollowPlayer : MonoBehaviour
 
     void LateUpdate()
     {
+        Debug.Log(target.position);
         transform.position = target.position;
     }
 }

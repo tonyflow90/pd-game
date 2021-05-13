@@ -6,7 +6,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Player
+  m_Name: MyPlayer
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: velocityX
@@ -154,30 +154,13 @@ AnimatorStateMachine:
     m_State: {fileID: 1102433169737779366}
     m_Position: {x: 180, y: -300, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 1102080591485173368}
-    m_Position: {x: -180, y: -300, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: 1102635880149297478}
-    m_Position: {x: -180, y: -384, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: 1102893087117896476}
-    m_Position: {x: -180, y: -468, z: 0}
-  - serializedVersion: 1
     m_State: {fileID: 1102567981102962784}
-    m_Position: {x: 620, y: -240, z: 0}
+    m_Position: {x: 624, y: -240, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102799505466558240}
     m_Position: {x: 444, y: -552, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: 1102728030185773884}
-    m_Position: {x: 180, y: -612, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: 1102101735027427872}
-    m_Position: {x: 408, y: -360, z: 0}
   m_ChildStateMachines: []
-  m_AnyStateTransitions:
-  - {fileID: 1101020438278029396}
-  - {fileID: 1101979291509282352}
+  m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
@@ -469,7 +452,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0.001
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102799505466558240}
-  m_Solo: 1
+  m_Solo: 0
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
@@ -744,7 +727,6 @@ AnimatorState:
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
-  - {fileID: 1101338692065465862}
   - {fileID: 1101194753123747068}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
