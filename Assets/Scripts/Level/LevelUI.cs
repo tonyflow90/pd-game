@@ -6,6 +6,11 @@ using UnityEngine.EventSystems;
  
 public class LevelUI : MonoBehaviour
 {
+    public GameManager gameManager;
+
+    public TMP_Text pizzaText;
+    public TMP_Text beverageText;
+
     public TMP_Text timerText;
     public bool pause;
 
@@ -17,8 +22,6 @@ public class LevelUI : MonoBehaviour
 
     void start()
     {
-        // panelPause.SetActive(true);
-
         if (pause)
         {
             button.GetComponentInChildren<TMP_Text>().text = "Play";
@@ -27,6 +30,18 @@ public class LevelUI : MonoBehaviour
         {
             button.GetComponentInChildren<TMP_Text>().text = "Pause";
         }
+        
+        pizzaText.text = gameManager.GetPizzaCount().ToString();
+        beverageText.text = gameManager.GetBeverageCount().ToString();
+        timerText.text = FormatTime(gameManager.maxTime - gameManager.GetTime());
+    }
+
+    private string FormatTime(float time) 
+    {
+        var minutes = time / 60;
+        var seconds = time % 60;
+        var timeString = string.Format("{0:00}:{1:00}", (int)minutes, (int)seconds);
+        return timeString;
     }
 
     public void TogglePlayPause()
@@ -60,14 +75,8 @@ public class LevelUI : MonoBehaviour
 
     void FixedUpdate()
     {
-        time += Time.deltaTime;
-
-        var minutes = time / 60; //Divide the guiTime by sixty to get the minutes.
-        var seconds = time % 60;//Use the euclidean division for the seconds.
-        var fraction = (time * 100) % 100;
-
-        //update the label value
-        //  timerLabel.text = string.Format ("{0:00} : {1:00} : {2:000}", minutes, seconds, fraction);
-        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        pizzaText.text = gameManager.GetPizzaCount().ToString();
+        beverageText.text = gameManager.GetBeverageCount().ToString();
+        timerText.text = FormatTime(gameManager.maxTime - gameManager.GetTime());
     }
 }
