@@ -26,21 +26,13 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             jump = true;
-            // animator.SetBool("jump", true);
+
+            // Sound
+            AudioSource audio = gameObject.GetComponent<AudioSource>();
+            audio.Play();
         }
 
     }
-
-    // public void OnLanding() 
-    // {
-    //     jump_event = animator.GetBool("jump");
-    //     Debug.Log("is Landing! Jump: " + jump_event);
-    //     if(jump_event) {
-    //         animator.SetBool("jump", false);
-    //     } else {
-    //         animator.SetBool("jump", true);
-    //     }
-    // }
 
     void FixedUpdate()
     {

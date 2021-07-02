@@ -23,7 +23,14 @@ public class Item : MonoBehaviour
             if(gameObject.name.Contains("Beverage")) {
                 gameManager.IncreaseBeverageCount();
             }
-            Destroy(gameObject);
+
+            gameObject.GetComponent<Renderer>().enabled = false;
+
+            // Sound
+            AudioSource audio = gameObject.GetComponent<AudioSource>();
+            audio.Play();
+            
+            Destroy(gameObject, audio.clip.length);
         }
     }
 }
