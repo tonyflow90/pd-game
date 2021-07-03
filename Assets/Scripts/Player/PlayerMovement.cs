@@ -9,12 +9,17 @@ public class PlayerMovement : MonoBehaviour
 
     public Animator animator;
 
+    public AudioSource jumpAudio;
+    public AudioSource stepsAudio;
+
     public float speed = 40f;
     float hMove = 0f;
+    float vMove = 0f;
 
     bool jump = false;
+    bool steps = false;
 
-    bool jump_event = false;
+    bool stepsAudioRunning = false;
 
     // Update is called once per frame
     void Update()
@@ -28,10 +33,30 @@ public class PlayerMovement : MonoBehaviour
             jump = true;
 
             // Sound
-            AudioSource audio = gameObject.GetComponent<AudioSource>();
-            audio.Play();
+            // AudioSource audio = gameObject.GetComponent<AudioSource>();
+            jumpAudio.Play();
         }
 
+        if (hMove != 0 && vMove == 0)
+        {
+            steps = true;
+        }
+        else
+        {
+            steps = false;
+        }
+
+        if (steps && !stepsAudioRunning)
+        {
+            stepsAudio.Play();
+            stepsAudioRunning = true;
+        }
+
+        if (!steps)
+        {
+            stepsAudio.Stop();
+            stepsAudioRunning = false;
+        }
     }
 
     void FixedUpdate()

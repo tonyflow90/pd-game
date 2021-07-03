@@ -13,9 +13,9 @@ public class Enemy : MonoBehaviour
         PlayerController2D player = hitInfo.GetComponent<PlayerController2D>();
         if(hitInfo.name == "PlayerPlaceholder")
         {
-            Debug.Log(gameObject.name);
-            Debug.Log(hitInfo.name);
-            gameManager.GameEnd();
+            // Debug.Log(gameObject.name);
+            // Debug.Log(hitInfo.name);
+            // gameManager.GameEnd();
         }
     }
 }

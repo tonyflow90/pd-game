@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class EnemyMove : MonoBehaviour
 {
+    public AudioSource flipSound;
     public float Speed = 1;
 
     public float Distance = 1;
@@ -25,27 +26,36 @@ public class EnemyMove : MonoBehaviour
         CurrentPosition = gameObject.transform.position;
         MaxDistance = StartPosition.x + Distance;
     }
+
+    void playFlipSound()
+    {
+        if (flipSound)
+            flipSound.Play();
+    }
     void Update()
     {
         CurrentPosition = gameObject.transform.position;
         if (MaxDistance <= CurrentPosition.x)
         {
             MoveRight = false;
-       }
+            playFlipSound();
+
+        }
         if (StartPosition.x >= CurrentPosition.x)
         {
             MoveRight = true;
+            playFlipSound();
         }
 
         if (MoveRight)
         {
             transform.Translate(Time.deltaTime * Speed, 0, 0);
-            transform.localScale = new Vector2(Scale.x,Scale.y);
+            transform.localScale = new Vector2(Scale.x, Scale.y);
         }
         else
         {
             transform.Translate(-1 * Time.deltaTime * Speed, 0, 0);
-            transform.localScale = new Vector2(-1*Scale.x,Scale.y);
+            transform.localScale = new Vector2(-1 * Scale.x, Scale.y);
         }
 
         // if(Flip) {
