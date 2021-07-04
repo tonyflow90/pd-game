@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public LevelLoader levelLoader;
+
     private int pizzaCount = 0;
     public int maxPizzaCount = 3;
     private int beverageCount = 0;
@@ -22,10 +24,10 @@ public class GameManager : MonoBehaviour
     {
         time += Time.deltaTime;
 
-        if(CheckCompleteGame()) {
-            Debug.Log(CalculateScore());
-            LevelComplete();
-        }
+        // if(CheckCompleteGame()) {
+        //     // Debug.Log(CalculateScore());
+        //     // LevelComplete();
+        // }
 
         if (time > maxTime)
         {
@@ -38,7 +40,7 @@ public class GameManager : MonoBehaviour
     public void GameEnd()
     {
         Debug.Log("Ende");
-        SceneManager.LoadScene(3);
+        levelLoader.LoadLevel("LevelFailed");
     }
 
     public void LevelComplete() { 
@@ -52,7 +54,7 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetString("time", timeString);
         PlayerPrefs.SetString("score", totalScore.ToString());
         
-        SceneManager.LoadScene(2);
+        levelLoader.LoadLevel("LevelComplete");
     }
     private string FormatTime(float time) 
     {
@@ -70,7 +72,7 @@ public class GameManager : MonoBehaviour
         return (int)timeScore + beverageScore + pizzaScore;
     }
 
-    private bool CheckCompleteGame()
+    public bool CheckCompleteGame()
     {
         if(pizzaCount == maxPizzaCount && beverageCount == maxBeverageCount && time < maxTime) {
             return true;

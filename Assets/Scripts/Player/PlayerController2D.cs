@@ -1,19 +1,16 @@
 using UnityEngine;
 using UnityEngine.Events;
-
+using System.Collections;
 public class PlayerController2D : MonoBehaviour
 {
     [SerializeField] private float m_JumpForce = 400f;                          // Amount of force added when the player jumps.
-    [Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;          // Amount of maxSpeed applied to crouching movement. 1 = 100%
     [Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;  // How much to smooth out the movement
     [SerializeField] private bool m_AirControl = false;                         // Whether or not a player can steer while jumping;
     [SerializeField] private LayerMask m_WhatIsGround;                          // A mask determining what is ground to the character
     [SerializeField] private Transform m_GroundCheck;                           // A position marking where to check if the player is grounded.
     [SerializeField] private Transform m_CeilingCheck;                          // A position marking where to check for ceilings
-    [SerializeField] private Collider2D m_CrouchDisableCollider;                // A collider that will be disabled when crouching
 
     public GameManager gameManager;
-
 
     const float k_GroundedRadius = .1f; // Radius of the overlap circle to determine if grounded
     private bool m_Grounded = true;            // Whether or not the player is grounded.
@@ -30,9 +27,92 @@ public class PlayerController2D : MonoBehaviour
 
     [System.Serializable]
     public class BoolEvent : UnityEvent<bool> { }
+    public Animator animator;
 
-    public BoolEvent OnCrouchEvent;
-    private bool m_wasCrouching = false;
+    public AudioSource jumpAudio;
+    public AudioSource stepsAudio;
+
+    public AudioSource deathAudio;
+    public AudioSource victoryAudio;
+
+    public float volume = .3f;
+    public float speed = 40f;
+    float hMove = 0f;
+
+    bool spawned = false;
+    bool death = false;
+    bool victory = false;
+    bool jump = false;
+    bool steps = false;
+
+    bool stepsAudioRunning = false;
+
+    void Update()
+    {
+        if (gameManager.CheckCompleteGame() && !victory)
+        {
+            StartCoroutine(Victory());
+        }
+
+        if (!death && !victory)
+        {
+
+            hMove = Input.GetAxisRaw("Horizontal") * speed;
+
+            animator.SetFloat("speed", Mathf.Abs(hMove));
+
+            animator.SetBool("spawned", true);
+
+            if (spawned)
+            {
+                spawned = true;
+                // animator.SetBool("spawned", spawned);
+            }
+
+            if (Input.GetButtonDown("Jump"))
+            {
+                jump = true;
+
+                animator.SetBool("jump", jump);
+
+                // Sound
+                // AudioSource audio = gameObject.GetComponent<AudioSource>();
+                jumpAudio.Play();
+                stepsAudio.Stop();
+                stepsAudioRunning = false;
+            }
+
+            if (!isJumping)
+                animator.SetBool("jump", jump);
+
+            if (hMove != 0 && !isJumping)
+            {
+                steps = true;
+            }
+            else
+            {
+                steps = false;
+            }
+
+            if (steps && !stepsAudioRunning)
+            {
+                stepsAudio.Play();
+                stepsAudioRunning = true;
+            }
+
+            if (!steps)
+            {
+                stepsAudio.Stop();
+                stepsAudioRunning = false;
+            }
+
+        }
+        else
+        {
+            hMove = 0;
+        }
+
+    }
 
     private void Awake()
     {
@@ -41,8 +121,11 @@ public class PlayerController2D : MonoBehaviour
         if (OnLandEvent == null)
             OnLandEvent = new UnityEvent();
 
-        if (OnCrouchEvent == null)
-            OnCrouchEvent = new BoolEvent();
+        allAudioSources = FindObjectsOfType(typeof(AudioSource)) as AudioSource[];
+        // StartAllAudio();
+
+        death = false;
+        victory = false;
     }
 
     private void FixedUpdate()
@@ -58,25 +141,22 @@ public class PlayerController2D : MonoBehaviour
             if (colliders[i].gameObject != gameObject)
             {
                 m_Grounded = true;
-                if (!wasGrounded && !isJumping)
-                {
-                    OnLandEvent.Invoke();
-                }
-                else
+                if (!wasGrounded)
                 {
                     isJumping = false;
+                    OnLandEvent.Invoke();
                 }
             }
-            else
-            {
-                Debug.Log("Hello");
-            }
         }
+        Move(hMove * Time.fixedDeltaTime, false, jump);
+        jump = false;
+
     }
 
 
     public void Move(float move, bool crouch, bool jump)
     {
+
         //only control the player if grounded or airControl is turned on
         if (m_Grounded || m_AirControl)
         {
@@ -120,16 +200,69 @@ public class PlayerController2D : MonoBehaviour
         transform.localScale = theScale;
     }
 
+    private AudioSource[] allAudioSources;
+
+    void StartAllAudio()
+    {
+        foreach (AudioSource audioSource in allAudioSources)
+        {
+            audioSource.volume = volume;
+        }
+    }
+
+    void StopAllAudio()
+    {
+        foreach (AudioSource audioSource in allAudioSources)
+        {
+            // audioSource.volume = 0;
+            if (audioSource)
+                audioSource.Stop();
+        }
+    }
+
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
         bool enemyHit = false;
 
-        if (hitInfo.name.Contains("Enemy"))
+        if (hitInfo.name.Contains("Enemy") || hitInfo.name.Contains("Deadzone"))
         {
             enemyHit = true;
         }
 
-        if (enemyHit)
-            gameManager.GameEnd();
+        if (!death && enemyHit)
+        {
+            StartCoroutine(Death());
+        }
+
     }
+
+    IEnumerator Death()
+    {
+        death = true;
+        StopAllAudio();
+        animator.SetBool("death", death);
+
+        // Sound
+        deathAudio.Play();
+
+        // Destroy(hitInfo);
+        float animationTime = (float)animator.GetCurrentAnimatorStateInfo(0).length + animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
+        yield return new WaitForSeconds(2);
+        gameManager.GameEnd();
+    }
+
+    IEnumerator Victory()
+    {
+        victory = true;
+        StopAllAudio();
+        animator.SetBool("victory", victory);
+
+        // Sound
+        victoryAudio.Play();
+
+        float animationTime = (float)animator.GetCurrentAnimatorStateInfo(0).length + animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
+        yield return new WaitForSeconds(2);
+        gameManager.LevelComplete();
+    }
+
 }

@@ -2,25 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
- 
+
 public class Item : MonoBehaviour
 {
     public GameManager gameManager;
-    public Rigidbody2D rigidbody2D;
 
-    void OnTriggerEnter2D (Collider2D hitInfo)
+    private bool isCollected = false;
+
+    void OnTriggerEnter2D(Collider2D hitInfo)
     {
         PlayerController2D player = hitInfo.GetComponent<PlayerController2D>();
-        if(hitInfo.name == "PlayerPlaceholder")
+        if (hitInfo.name == "PlayerPlaceholder" && !isCollected)
         {
-            // Debug.Log(gameObject.name);
-            // Debug.Log(hitInfo.name);
+            isCollected = true;
 
-            if(gameObject.name.Contains("Pizza")) {
+            if (gameObject.name.Contains("Pizza"))
+            {
                 gameManager.IncreasePizzaCount();
             }
-            
-            if(gameObject.name.Contains("Beverage")) {
+
+            if (gameObject.name.Contains("Beverage"))
+            {
                 gameManager.IncreaseBeverageCount();
             }
 
@@ -29,7 +31,7 @@ public class Item : MonoBehaviour
             // Sound
             AudioSource audio = gameObject.GetComponent<AudioSource>();
             audio.Play();
-            
+
             Destroy(gameObject, audio.clip.length);
         }
     }

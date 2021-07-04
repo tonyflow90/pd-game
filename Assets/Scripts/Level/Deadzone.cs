@@ -12,7 +12,7 @@ public class Deadzone : MonoBehaviour
         PlayerController2D player = hitInfo.GetComponent<PlayerController2D>();
         if(hitInfo.name == "PlayerPlaceholder")
         {
-            gameManager.GameEnd();
+            // gameManager.GameEnd();
         }
     }
 }

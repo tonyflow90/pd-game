@@ -10,6 +10,14 @@ public class EnemyMove : MonoBehaviour
 
     public float Distance = 1;
 
+    public float SpeedMax = 20;
+
+    public bool changeSpeed = false;
+    public float changeSpeedTime = 5;
+    private float csTime = 2;
+    public float changeSpeedMin = -1;
+    public float changeSpeedMax = 1;
+
     public bool MoveRight = true;
     private bool Flip = false;
 
@@ -27,6 +35,7 @@ public class EnemyMove : MonoBehaviour
         MaxDistance = StartPosition.x + Distance;
     }
 
+
     void playFlipSound()
     {
         if (flipSound)
@@ -34,6 +43,22 @@ public class EnemyMove : MonoBehaviour
     }
     void Update()
     {
+        // if (changeSpeed)
+        // {
+        //     csTime -= Time.deltaTime;
+        //     if (csTime < 0)
+        //     {
+        //         csTime = changeSpeedTime;
+        //         System.Random random = new System.Random();
+        //         Speed += (float)(random.NextDouble() * (changeSpeedMax - changeSpeedMin) + changeSpeedMin);
+        //         if (Speed > SpeedMax)
+        //             Speed = changeSpeedMax;
+
+        //         if (Speed < 0)
+        //             Speed = 0;
+        //     }
+        // }
+
         CurrentPosition = gameObject.transform.position;
         if (MaxDistance <= CurrentPosition.x)
         {

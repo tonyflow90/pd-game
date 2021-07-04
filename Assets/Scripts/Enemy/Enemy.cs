@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class Enemy : MonoBehaviour
 {
     public GameManager gameManager;
-    public Rigidbody2D rigidbody2D;
 
     void OnTriggerEnter2D (Collider2D hitInfo)
     {

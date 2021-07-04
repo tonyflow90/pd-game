@@ -5,8 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public LevelLoader levelLoader;
+
     public void Play () {
-        SceneManager.LoadScene(1);
+        levelLoader.LoadLevel("Level_1_light");
+        // SceneManager.LoadScene(1);
     }
 
     public void Quit () {

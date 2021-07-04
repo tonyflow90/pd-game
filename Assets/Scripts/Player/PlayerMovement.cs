@@ -14,7 +14,6 @@ public class PlayerMovement : MonoBehaviour
 
     public float speed = 40f;
     float hMove = 0f;
-    float vMove = 0f;
 
     bool jump = false;
     bool steps = false;
@@ -24,6 +23,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        Debug.Log(Input.GetKey("Horizontal"));
         hMove = Input.GetAxisRaw("Horizontal") * speed;
 
         animator.SetFloat("speed", Mathf.Abs(hMove));
@@ -35,9 +36,11 @@ public class PlayerMovement : MonoBehaviour
             // Sound
             // AudioSource audio = gameObject.GetComponent<AudioSource>();
             jumpAudio.Play();
+            stepsAudio.Stop();
+            stepsAudioRunning = false;
         }
 
-        if (hMove != 0 && vMove == 0)
+        if (hMove != 0)
         {
             steps = true;
         }
