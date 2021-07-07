@@ -1,0 +1,528 @@
+<!doctype html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- CLEAN MARKUP = GOOD KARMA.
+      Hi source code lover,
+
+      you're a curious person and a fast learner ;)
+      Let's make something beautiful together. Contribute on Github:
+      https://github.com/webslides/webslides
+
+      Thanks!
+    -->
+
+  <!-- SEO -->
+  <title>WebSlides Keynote: Make a Keynote presentation using HTML</title>
+  <meta name="description"
+    content="WebSlides is the easiest way to make HTML presentations. Just essential features, clean code, and lovely CSS.">
+
+  <!-- URL CANONICAL -->
+  <!-- <link rel="canonical" href="http://your-url.com/permalink"> -->
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,700,700i%7CMaitree:200,300,400,600,700&amp;subset=latin-ext"
+    rel="stylesheet">
+
+  <!-- CSS Base -->
+  <link rel="stylesheet" type='text/css' media='all' href="./static/css/webslides.css">
+
+  <!-- Optional - CSS SVG Icons (Font Awesome) -->
+  <link rel="stylesheet" type="text/css" media="all" href="./static/css/svg-icons.css">
+
+  <!-- SOCIAL CARDS (ADD YOUR INFO) -->
+
+  <!-- FACEBOOK -->
+  <meta property="og:url" content="http://your-url.com/permalink"> <!-- EDIT -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Make a Keynote presentation using HTML"> <!-- EDIT -->
+  <meta property="og:description"
+    content="WebSlides is the easiest way to make HTML presentations. 120+ free slides ready to use."> <!-- EDIT -->
+  <meta property="og:updated_time" content="2017-01-04T17:32:14"> <!-- EDIT -->
+  <meta property="og:image" content="./static/images/share-webslides.jpg"> <!-- EDIT -->
+
+  <!-- TWITTER -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@webslides"> <!-- EDIT -->
+  <meta name="twitter:creator" content="@jlantunez"> <!-- EDIT -->
+  <meta name="twitter:title" content="Make a Keynote presentation using HTML"> <!-- EDIT -->
+  <meta name="twitter:description"
+    content="WebSlides is the easiest way to make HTML presentations. 120+ free slides ready to use."> <!-- EDIT -->
+  <meta name="twitter:image" content="./static/images/share-webslides.jpg"> <!-- EDIT -->
+
+  <!-- FAVICONS -->
+  <link rel="shortcut icon" sizes="16x16" href="./static/images/favicons/favicon.png">
+  <link rel="shortcut icon" sizes="32x32" href="./static/images/favicons/favicon-32.png">
+  <link rel="apple-touch-icon icon" sizes="76x76" href="./static/images/favicons/favicon-76.png">
+  <link rel="apple-touch-icon icon" sizes="120x120" href="./static/images/favicons/favicon-120.png">
+  <link rel="apple-touch-icon icon" sizes="152x152" href="./static/images/favicons/favicon-152.png">
+  <link rel="apple-touch-icon icon" sizes="180x180" href="./static/images/favicons/favicon-180.png">
+  <link rel="apple-touch-icon icon" sizes="192x192" href="./static/images/favicons/favicon-192.png">
+
+  <!-- Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#333333">
+</head>
+
+<body>
+  <header role="banner">
+    <nav role="navigation">
+      <p>
+        <a href="./index.html" title="Game Design Presentation">Game Design Presentation</a>
+      </p>
+      <ul>
+        <li class="github">
+          <a rel="external" href="https://github.com/tonyflow90" title="Github">
+            <svg class="fa-github">
+              <use xlink:href="#fa-github"></use>
+            </svg>
+            <em>Game Design Presentation</em>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main role="main">
+    <article id="webslides">
+
+      <section class="aligncenter bg-black">
+        <span class="background light" style="background-image:url('./static/images/level/level.png')"></span>
+        <div class="wrap size-50">
+          <p class="text-subtitle">Game Design</p>
+          <h1>Abschlusspräsentationen</h1>
+          <img src="./static/images/logos/Logo.png" style="width: 200px;" alt="Pizza Delivery Logo">
+          <p class="text-intro"> zum Spiel Pizza Delivery <br>
+          </p>
+          <p class="text-subtitle">erstellt von Keno Bohlen</p>
+        </div>
+      </section>
+
+      <section class="bg-black">
+        <span class="background dark" style="background-image:url('./static/images/level/2_tree_level.png')"></span>
+        <div class="wrap size-50 card-50 bg-white">
+          <div>
+            <h1 class="content-center aligncenter">
+              <strong>Inhalt</strong>
+            </h1>
+            <ul class="flexblock specs">
+              <li>
+                <a href="/#slide=3">
+                  <h2 class="content-center">Kurzbeschreibung & Überblick</h2>
+                </a>
+              </li>
+              <li>
+                <a href="/#slide=5">
+                  <h2 class="content-center">Level & Menu</h2>
+                </a>
+              </li>
+              <li>
+                <a href="/#slide=9">
+                  <h2 class="content-center">Gegner & Items</h2>
+                </a>
+              </li>
+              <li>
+                <a href="/#slide=11">
+                  <h2 class="content-center">Spielfigur</h2>
+                </a>
+              </li>
+              <li>
+                <a href="/#slide=13">
+                  <h2 class="content-center">Demo</h2>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-black">
+        <span class="background dark" style="background-image:url('./static/images/level/level.png')"></span>
+        <div class="wrap aligncenter bg-white">
+          <h1 class="text-landing text-shadow"><strong>Beschreibung & Überblick</strong></h1>
+        </div>
+      </section>
+
+      <!-- Slide 2 -->
+      <section class="bg-black">
+        <span class="background dark" style="background-image:url('./static/images/level/1_building_level.png')"></span>
+        <div class="wrap card-50 bg-trans-white">
+          <div class="content-left">
+            <h1>Beschreibung</h1>
+            <p class="card-50 bg-white">Im Spiel ‘Pizza Delivery’ ist die Hauptfigur ein Pizzaboten der beim Ausliefern
+              einer Bestellung einen Unfall hat. Die Bestellung (Pizza, Getränk usw.) wird bei dem Unfall übers Level
+              verteilt. Der Spieler hat
+              die Aufgabe möglichst schnell alle Elemente der Bestellung einzusammeln und ausliefern. Dabei läuft ein
+              Timer runter und man muss Gegnern (z.B. Auto) ausweichen. Am Ende wird ein Punkte Score aus der
+              verbliebenen Zeit und den eingesammelten Elementen berechnet.
+            </p>
+          </div>
+          <div class="content-right">
+            <h1>Überblick</h1>
+            <ul class="flexblock features">
+              <li>
+
+                <div>
+                  <h2>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="476" height="88" fill="#0078d6">
+                      <path
+                        d="M0 12.5l35.7-4.9v34.5H0M40 6.9L87.3 0v41.8H40M0 45.74h35.7v34.6l-35.7-5M40 46.2h47.3v41.4L40 80.9M114 17l6.76.04 10.5 38.1c.75 2.66 1.3 5.38 1.64 8.14 3.66-15.6 8.66-30.8 12.9-46.2l5.85.02 9.04 33c1.13 4.38 2.6 8.7 3.05 13.2 3.3-15.6 8.03-30.8 11.8-46.2l6.66-.03-14.8 53h-7.2l-10.7-38.1c-.6-2.05-.85-4.17-1.04-6.3-.28 1.83-.54 3.68-1 5.47l-10.8 38.8c-2.4.13-4.8.14-7.2.12l-15.4-53m71.94.34a4 4 0 1 1 0 1m.9 13.6h6v38h-6m22.16-31.88c3.43-6.1 11.43-8.92 17.88-6.1 5.13 2 7.04 7.94 7.2 13 .28 8.32.05 16.65.12 24.97-2 0-4 0-6-.01-.1-8 .2-16-.14-24-.16-3.96-1.84-8.72-6.15-9.73-6.3-1.9-12.57 3.77-12.77 10-.18 7.9-.01 15.83-.07 23.74h-6V32h6l-.08 6.12M270 14h6v56h-5.98l-.17-6.1c-4.33 7.78-15.9 9.5-22.5 3.73-4.73-4.07-6.17-10.7-5.92-16.7.05-6.08 2.05-12.5 6.9-16.5 6.3-5.18 17.4-4.88 21.8 2.73l-.04-23.2m-12.9 22.1c-4.8.76-8.05 5.14-8.95 9.67-1.18 5.46-.97 11.8 2.47 16.4 3.72 4.94 11.9 5.05 15.9.38 2.7-2.82 3.48-6.86 3.5-10.6.03-4 .37-8.5-2.28-11.8-2.34-3.33-6.7-4.83-10.6-4m41.77-5c5.35-.47 11.3.37 15.3 4.24 4.54 4.2 5.9 10.7 5.64 16.6-.07 5.35-2.05 10.8-5.97 14.5-8.18 7.44-23.4 5.8-28.6-4.42-4.08-8.57-3.26-20.4 4.2-26.9 2.67-2.26 6.05-3.3 9.4-4.04m-1.08 5.44c-8.8 2.7-10.3 14.2-7.55 21.8 2.2 6.72 10.7 9.7 16.9 6.56 4.15-1.9 6.04-6.6 6.44-10.9.45-5 .05-10.7-3.5-14.6-3-3.38-8.08-4.1-12.3-2.87M323 32h6.26l7.4 27.2c.5 1.7.7 3.46.88 5.22 2.83-10.9 6.4-21.6 9.62-32.4l5.47.03c2.75 10.8 6.17 21.4 8.45 32.4 2.35-10.8 5.7-21.5 8.3-32.2 2-.1 4.02-.13 6.04-.15l-11.3 38h-6.22c-2.7-10.3-6.2-20.4-8.4-30.8-2.6 10.4-6.23 20.5-9.2 30.8h-6l-11.3-38m67-1.1c3.75-.26 7.57.1 11.1 1.48.98 1.86.22 4.3.45 6.4-4.2-2.63-10-4.3-14.6-1.63-3.13 1.7-3.28 6.73-.23 8.6 4.37 2.83 9.92 3.57 13.8 7.2 4.28 4.12 3.24 12-1.77 15.1-6.1 3.88-14.1 3.5-20.5.54l-.05-6.72c4.54 3.46 10.9 5.38 16.4 2.92 3.17-1.6 3.33-6.46.54-8.5-4.37-3.22-10.4-3.73-14.2-7.75-3.83-3.86-3.14-11 1.13-14.2 2.2-2.03 5.2-2.64 8-3.43M432 16.2l2.1-.3V70h-5.92l.07-45.1c-3.77 2.6-7.84 4.84-12.3 6.08l.07-6c5.8-1.97 11.1-5.15 15.9-8.86M456 16.1c5.2-.87 11 1.03 14.1 5.45 4.4 6.2 4.8 14.2 5.02 21.5-.15 7.74-1 16.1-5.94 22.4-4.55 5.97-13.9 7.37-20 2.98-4.95-3.57-6.9-9.8-7.77-15.6-1-8.57-.9-17.6 2.07-25.7 1.88-5.55 6.52-10.3 12.5-11m-.92 5.37c-5.33 2.16-6.86 8.46-7.6 13.6-.78 7.14-.96 14.5.74 21.5.85 3.46 2.64 7.13 6.07 8.65 3.9 1.96 9.1.27 11.1-3.57 3.27-5.65 3.35-12.4 3.4-18.8-.13-6.2-.38-12.8-3.8-18.2-2.03-3.28-6.4-4.6-9.94-3.18" />
+                    </svg>
+                    Zielplattform
+                  </h2>
+                  Windows 10
+                </div>
+              </li>
+              <li>
+                <div>
+                  <h2>
+                    <svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#"
+                      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg"
+                      xmlns="http://www.w3.org/2000/svg" width="275" height="100" viewBox="0 0 275 100" version="1.1"
+                      id="svg4">
+                      <metadata id="metadata10">
+                        <rdf:RDF>
+                          <cc:Work rdf:about="">
+                            <dc:format>image/svg+xml</dc:format>
+                            <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+                            <dc:title></dc:title>
+                          </cc:Work>
+                        </rdf:RDF>
+                      </metadata>
+                      <defs id="defs8" />
+                      <path
+                        d="M 82.775,79.842 64.9,49.775 82.775,19.708 91.392,49.775 Z M 42.992,76.908 20.533,54.633 h 35.75 L 74.158,84.7 Z m 0,-54.358 31.075,-7.792 -17.875,30.067 H 20.442 Z M 88.642,0 48.033,10.542 41.983,20.9 29.792,20.808 0,49.775 29.792,78.742 41.983,78.65 48.033,89.008 88.642,99.642 99.55,60.133 93.408,49.867 99.55,39.6 Z m 92.216,29.242 c -5.408,0 -9.075,2.291 -11.825,6.508 h -0.183 v -5.408 h -9.533 v 39.783 h 9.716 v -22.55 c 0,-5.408 3.392,-9.167 8.067,-9.167 4.4,0 7.7,2.659 7.7,7.334 v 24.475 h 9.717 V 44.183 c 0.091,-8.708 -5.409,-14.941 -13.659,-14.941 z m -36.3,24.108 c 0,5.317 -3.025,8.983 -7.975,8.983 -4.491,0 -7.333,-2.566 -7.333,-7.241 v -24.75 h -9.717 v 26.583 c 0,8.708 4.95,14.392 13.842,14.392 5.592,0 8.708,-2.109 11.367,-5.775 h 0.275 v 4.675 h 9.35 V 30.342 H 144.65 V 53.35 Z m 55.184,-23.008 h 9.716 v 39.783 h -9.716 z m 0,-12.375 h 9.716 v 7.975 h -9.716 z m 64.808,12.375 -5.775,17.966 c -1.283,3.667 -2.292,8.709 -2.292,8.709 h -0.275 c 0,0 -1.283,-5.042 -2.566,-8.709 l -6.509,-17.966 h -10.45 l 10.725,28.325 c 2.292,6.05 3.025,8.616 3.025,10.816 0,3.3 -1.741,5.409 -5.866,5.409 h -3.759 v 8.341 h 6.234 c 8.066,0 10.908,-3.208 13.933,-12.008 L 275,30.433 H 264.55 Z M 227.608,58.483 V 37.4 h 6.234 v -6.967 h -6.234 V 17.967 h -9.716 v 12.375 h -5.5 v 6.966 h 5.5 v 23.375 c 0,7.517 5.683,9.534 10.816,9.534 4.217,0 5.317,-0.184 5.317,-0.184 v -7.7 h -2.475 c -2.292,0.092 -3.942,-0.916 -3.942,-3.85 z"
+                        id="path2" style="fill:#110b09;fill-rule:nonzero" />
+                    </svg>
+                    Technologie
+                  </h2>
+                  Unity
+                </div>
+              </li>
+            </ul>
+            <ul class="flexblock features">
+              <li>
+                <div>
+                  <h2>Genre</h2>
+                  Jump & Run / Plattformer
+                </div>
+              </li>
+              <li>
+                <div>
+                  <h2>Zielgruppe</h2>
+                  Die Zielgruppe sind Gelegenheitsspieler
+                </div>
+              </li>
+              <li>
+                <div>
+                  <h2>USP</h2>
+                  Das Spiel basiert auf alt bekannten mechaniken von “Jump & Run” und “Plattformer” wie beispielsweise
+                  Super Donkey Kong oder Mario Bros.
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-black">
+        <span class="background dark" style="background-image:url('./static/images/level/level.png')"></span>
+        <div class="wrap aligncenter bg-white">
+          <h1 class="text-landing text-shadow"><strong>Level & Menu</strong></h1>
+        </div>
+      </section>
+
+      <section class="bg-black">
+        <span class="background dark" style="background-image:url('./static/images/level/1_lamp_level.png')"></span>
+        <div class="wrap">
+          <h1>Level</h1>
+          <ul class="flexblock gallery">
+            <li>
+              <a href="#">
+                <figure>
+                  <img alt="Thumbnail" src="./static/images/level/level_skizze.jpg">
+                  <figcaption>
+                    <h2>Skizze</h2>
+                  </figcaption>
+                </figure>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <figure>
+                  <img alt="Thumbnail" src="./static/images/level/level.png">
+                  <figcaption>
+                    <h2>Screenshot</h2>
+                  </figcaption>
+                </figure>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bg-black">
+        <span class="background dark" style="background-image:url('./static/images/level/1_lamp_level.png')"></span>
+        <div class="wrap">
+          <h1>Game Menu</h1>
+          <ul class="flexblock gallery">
+            <li>
+              <a href="#">
+                <figure>
+                  <img alt="Thumbnail" src="./static/images/level/game_menu_skizze.jpg">
+                  <figcaption>
+                    <h2>Skizze</h2>
+                  </figcaption>
+                </figure>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <figure>
+                  <div style="display: flex; flex-direction: row;">
+                    <img alt="Thumbnail" width="33%" src="./static/images/level/1_game_menu.png">
+                    <img alt="Thumbnail" width="33%" src="./static/images/level/2_game_menu.png">
+                    <img alt="Thumbnail" width="33%" src="./static/images/level/3_game_menu.png">
+                  </div>
+                  <figcaption>
+                    <h2>Screenshots</h2>
+                  </figcaption>
+                </figure>
+              </a>
+            </li>
+          <!-- </ul>
+          <ul class="flexblock gallery"> -->
+            <li>
+              <a href="#">
+                <figure>
+                  <img alt="Thumbnail" src="./static/images/level/4_game_menu.png">
+                  <figcaption>
+                    <h2>Screenshot</h2>
+                  </figcaption>
+                </figure>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <figure>
+                  <img alt="Thumbnail" src="./static/images/level/5_game_menu.png">
+                  <figcaption>
+                    <h2>Screenshot</h2>
+                  </figcaption>
+                </figure>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bg-black">
+        <span class="background dark" style="background-image:url('./static/images/level/1_lamp_level.png')"></span>
+        <div class="wrap">
+          <h1>InGame Menu</h1>
+          <ul class="flexblock gallery">
+            <li>
+              <a href="#">
+                <figure>
+                  <img alt="Thumbnail" src="./static/images/level/ingame_menu_skizze.jpg">
+                  <figcaption>
+                    <h2>Skizze</h2>
+                  </figcaption>
+                </figure>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <figure>
+                  <img alt="Thumbnail" src="./static/images/level/ingame_menu.png">
+                  <figcaption>
+                    <h2>Screenshot</h2>
+                  </figcaption>
+                </figure>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- <section class="fullscreen bg-black">
+        <div class="embed dark">
+          <video autoplay muted loop poster="./static/images/level/level.png">
+            <source src="./static/video/Game.mp4" type="video/mp4">
+          </video>
+        </div>
+      </section>
+
+      <section class="fullscreen bg-black">
+        <div class="embed">
+          <video autoplay muted loop poster="./static/images/level/level.png">
+            <source src="./static/video/Game.mp4" type="video/mp4">
+          </video>
+        </div>
+      </section> -->
+
+      <section class="bg-black">
+        <span class="background dark" style="background-image:url('./static/images/level/level.png')"></span>
+        <div class="wrap aligncenter bg-white">
+          <h1 class="text-landing text-shadow"><strong>Gegner & Items</strong></h1>
+        </div>
+      </section>
+
+      <section class="bg-black">
+        <span class="background dark" style="background-image:url('./static/images/level/1_lamp_level.png')"></span>
+        <div class="wrap">
+          <h1>Gegner</h1>
+          <ul class="flexblock gallery">
+            <li>
+              <a href="#">
+                <figure>
+                  <img alt="Thumbnail" src="./static/images/enemies/car.png">
+                  <figcaption>
+                    <h2>Auto</h2>
+                  </figcaption>
+                </figure>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <figure>
+                  <img alt="Thumbnail" src="./static/images/enemies/raven.png">
+                  <figcaption>
+                    <h2>Vogel</h2>
+                  </figcaption>
+                </figure>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <figure>
+                  <img alt="Thumbnail" src="./static/images/enemies/mouse.png">
+                  <figcaption>
+                    <h2>Maus</h2>
+                  </figcaption>
+                </figure>
+              </a>
+            </li>
+          </ul>
+          <h1>Items</h1>
+          <ul class="flexblock gallery">
+            <li>
+              <a href="#">
+                <figure>
+                  <img alt="Thumbnail" src="./static/images/items/pizza.png">
+                  <figcaption>
+                    <h2>Pizza</h2>
+                  </figcaption>
+                </figure>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <figure>
+                  <img alt="Thumbnail" src="./static/images/items/beverage.png">
+                  <figcaption>
+                    <h2>Getränk</h2>
+                  </figcaption>
+                </figure>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <!-- 
+      <section class="fullscreen bg-black">
+        <div class="embed dark">
+          <video autoplay muted loop poster="./static/images/level/level.png">
+            <source src="./static/video/Death.mp4" type="video/mp4">
+          </video>
+        </div>
+      </section>
+
+      <section class="fullscreen bg-black">
+        <div class="embed">
+          <video autoplay muted loop poster="./static/images/level/level.png">
+            <source src="./static/video/Death.mp4" type="video/mp4">
+          </video>
+        </div>
+      </section> -->
+
+      <section class="bg-black">
+        <span class="background dark" style="background-image:url('./static/images/level/level.png')"></span>
+        <div class="wrap aligncenter bg-white">
+          <h1 class="text-landing text-shadow"><strong>Spielfigur</strong></h1>
+        </div>
+      </section>
+
+      <section class="bg-black">
+        <span class="background dark" style="background-image:url('./static/images/level/1_lamp_level.png')"></span>
+        <div class="wrap">
+          <h1>Spielfigur</h1>
+          <ul class="flexblock gallery">
+            <li>
+              <a href="#">
+                <figure>
+                  <img alt="Thumbnail" src="./static/images/spielfigur.png">
+                  <figcaption>
+                    <h2>Spielfigur</h2>
+                  </figcaption>
+                </figure>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <figure>
+                  <video class="aligncenter" width="100%" autoplay muted loop poster="./static/images/level/level.png">
+                    <source src="./static/video/Death.mp4" type="video/mp4">
+                  </video>
+                  <figcaption>
+                    <h2>Animations</h2>
+                  </figcaption>
+                </figure>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="bg-black">
+        <span class="background dark" style="background-image:url('./static/images/level/level.png')"></span>
+        <div class="wrap aligncenter bg-white">
+          <h1 class="text-landing text-shadow"><strong>Demo</strong></h1>
+        </div>
+      </section>
+
+      <section class="fullscreen bg-black">
+        <div class="embed">
+          <video autoplay muted loop poster="./static/images/level/level.png">
+            <source src="./static/video/Game.mp4" type="video/mp4">
+          </video>
+        </div>
+      </section>
+
+      <section class="aligncenter bg-black">
+        <span class="background dark" style="background-image:url('./static/images/level/level.png')"></span>
+        <h2 class="text-emoji zoomIn">😎</h2>
+        <h3><strong>Thank you!</strong></h2>
+      </section>
+
+    </article>
+  </main>
+  <!--main-->
+
+  <!-- Required -->
+  <script src="./static/js/webslides.js"></script>
+
+  <script>
+    window.ws = new WebSlides();
+  </script>
+
+  <!-- OPTIONAL - svg-icons.js (fontastic.me - Font Awesome as svg icons) -->
+  <script defer src="./static/js/svg-icons.js"></script>
+
+</body>
+
+</html>
